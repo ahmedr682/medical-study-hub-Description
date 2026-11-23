@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+<rect width="100%" height="100%" rx="34" fill="#FAF5EB"/>
+<text x="70" y="82" font-family="Arial" font-size="40" font-weight="700" fill="#2C221E">NEONATAL — BIRTH INJURIES &amp; EXAM</text>
+<text x="72" y="125" font-family="Arial" font-size="21" fill="#665A52">Quick visual recall | Anatomy, presentation and key associations</text>
+<rect x="70" y="170" width="710" height="390" rx="22" fill="#E9CD92" stroke="#D9CEBE" stroke-width="3"/>
+<text x="98" y="218" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">SCALP / CRANIAL TRAUMA</text>
+<text x="100" y="262" font-family="Arial" font-size="19" fill="#2C221E">• Caput: edema above epicranial aponeurosis; present at</text>
+<text x="100" y="289" font-family="Arial" font-size="19" fill="#2C221E">  birth</text>
+<text x="100" y="323" font-family="Arial" font-size="19" fill="#2C221E">• Crosses sutures • resolves spontaneously in 2–3 days</text>
+<text x="100" y="357" font-family="Arial" font-size="19" fill="#2C221E">• Cephalohematoma: subperiosteal hemorrhage; appears 12–24</text>
+<text x="100" y="384" font-family="Arial" font-size="19" fill="#2C221E">  h</text>
+<text x="100" y="418" font-family="Arial" font-size="19" fill="#2C221E">• Does NOT cross sutures • resolves over 2 weeks–3 months</text>
+<text x="100" y="452" font-family="Arial" font-size="19" fill="#2C221E">• May cause jaundice; may have an underlying linear skull</text>
+<text x="100" y="479" font-family="Arial" font-size="19" fill="#2C221E">  fracture</text>
+<rect x="822" y="170" width="710" height="390" rx="22" fill="#C7DCD7" stroke="#D9CEBE" stroke-width="3"/>
+<text x="850" y="218" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">BRACHIAL PLEXUS</text>
+<text x="852" y="262" font-family="Arial" font-size="19" fill="#2C221E">• Erb-Duchenne: upper trunk C5–C6; lateral neck traction</text>
+<text x="852" y="296" font-family="Arial" font-size="19" fill="#2C221E">• Waiter’s tip: adducted, internally rotated arm; extended</text>
+<text x="852" y="323" font-family="Arial" font-size="19" fill="#2C221E">  elbow</text>
+<text x="852" y="357" font-family="Arial" font-size="19" fill="#2C221E">• Moro reflex affected; palmar grasp may be preserved</text>
+<text x="852" y="391" font-family="Arial" font-size="19" fill="#2C221E">• Klumpke: lower trunk C7–C8 ± T1; upward arm traction</text>
+<text x="852" y="425" font-family="Arial" font-size="19" fill="#2C221E">• Claw hand • absent grasp • may have Horner syndrome</text>
+<rect x="70" y="592" width="710" height="390" rx="22" fill="#F3D9C9" stroke="#D9CEBE" stroke-width="3"/>
+<text x="98" y="640" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">OTHER DELIVERY INJURIES</text>
+<text x="100" y="684" font-family="Arial" font-size="19" fill="#2C221E">• Clavicle fracture: commonest delivery bone injury</text>
+<text x="100" y="718" font-family="Arial" font-size="19" fill="#2C221E">• Asymmetric Moro • local tenderness • callus within 1 week</text>
+<text x="100" y="752" font-family="Arial" font-size="19" fill="#2C221E">• Facial nerve palsy (CN VII): entire ipsilateral face</text>
+<text x="100" y="779" font-family="Arial" font-size="19" fill="#2C221E">  incl. forehead</text>
+<text x="100" y="813" font-family="Arial" font-size="19" fill="#2C221E">• Eye lubrication; lecture mentions neuroplasty if no</text>
+<text x="100" y="840" font-family="Arial" font-size="19" fill="#2C221E">  improvement</text>
+<text x="100" y="874" font-family="Arial" font-size="19" fill="#2C221E">• Skull fractures: linear or depressed (see lecture slider)</text>
+<rect x="822" y="592" width="710" height="390" rx="22" fill="#D9E7E1" stroke="#D9CEBE" stroke-width="3"/>
+<text x="850" y="640" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">NEONATAL SKIN FINDINGS</text>
+<text x="852" y="684" font-family="Arial" font-size="19" fill="#2C221E">• Cutis marmorata: lacy mottling when cooled; persistence</text>
+<text x="852" y="711" font-family="Arial" font-size="19" fill="#2C221E">  is abnormal</text>
+<text x="852" y="745" font-family="Arial" font-size="19" fill="#2C221E">• Salmon patch: pink macules; darkens with crying; usually</text>
+<text x="852" y="772" font-family="Arial" font-size="19" fill="#2C221E">  fades</text>
+<text x="852" y="806" font-family="Arial" font-size="19" fill="#2C221E">• Mongolian spots: slate-gray; fades over years;</text>
+<text x="852" y="833" font-family="Arial" font-size="19" fill="#2C221E">  distinguish from bruises</text>
+<text x="852" y="867" font-family="Arial" font-size="19" fill="#2C221E">• Erythema toxicum: peaks day 2; eosinophils; self-limited</text>
+<text x="852" y="901" font-family="Arial" font-size="19" fill="#2C221E">• Hemangiomas: superficial red / deep bluish; management</text>
+<text x="852" y="928" font-family="Arial" font-size="19" fill="#2C221E">  varies</text>
+<rect x="70" y="1014" width="710" height="390" rx="22" fill="#E9CD92" stroke="#D9CEBE" stroke-width="3"/>
+<text x="98" y="1062" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">HEAD / EYE / EXTREMITY</text>
+<text x="100" y="1106" font-family="Arial" font-size="19" fill="#2C221E">• Preauricular tags or pits: assess hearing; renal</text>
+<text x="100" y="1133" font-family="Arial" font-size="19" fill="#2C221E">  ultrasound</text>
+<text x="100" y="1167" font-family="Arial" font-size="19" fill="#2C221E">• Iris coloboma: 6 o’clock cleft; CHARGE association</text>
+<text x="100" y="1201" font-family="Arial" font-size="19" fill="#2C221E">• Aniridia: iris hypoplasia; association with Wilms tumor</text>
+<text x="100" y="1235" font-family="Arial" font-size="19" fill="#2C221E">• Polydactyly: &gt;5 digits; lecture notes no treatment if</text>
+<text x="100" y="1262" font-family="Arial" font-size="19" fill="#2C221E">  well aligned</text>
+<rect x="822" y="1014" width="710" height="390" rx="22" fill="#C7DCD7" stroke="#D9CEBE" stroke-width="3"/>
+<text x="850" y="1062" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">MANAGEMENT / REFLEX CLUES</text>
+<text x="852" y="1106" font-family="Arial" font-size="19" fill="#2C221E">• Brachial plexus: positioning, partial immobilization,</text>
+<text x="852" y="1133" font-family="Arial" font-size="19" fill="#2C221E">  physiotherapy</text>
+<text x="852" y="1167" font-family="Arial" font-size="19" fill="#2C221E">• Lecture: consider neuroplasty if no recovery in 3–6</text>
+<text x="852" y="1194" font-family="Arial" font-size="19" fill="#2C221E">  months</text>
+<text x="852" y="1228" font-family="Arial" font-size="19" fill="#2C221E">• Erb: Moro reflex affected • Klumpke: grasp reflex</text>
+<text x="852" y="1255" font-family="Arial" font-size="19" fill="#2C221E">  affected</text>
+<text x="852" y="1289" font-family="Arial" font-size="19" fill="#2C221E">• Clavicle fracture: asymmetric Moro reflex</text>
+<text x="72" y="1070" font-family="Arial" font-size="17" fill="#665A52">Visual revision • Summarized from the uploaded lecture</text></svg>

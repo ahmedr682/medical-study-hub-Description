@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Study Hub</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d30;--panel2:#18263d;--text:#edf4ff;--muted:#9fb0c8;--accent:#55d6be;--line:#263650}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0b1220,#101b2d);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+header{padding:34px max(22px,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);background:#0b1220cc}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.75rem}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:10px 0}header p{color:var(--muted);max-width:680px;margin:0}
+main{max-width:1120px;margin:auto;padding:28px 22px 60px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.stat,.subject,.lecture,.notice{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.stat strong{display:block;font-size:1.7rem;color:var(--accent)}.stat span{color:var(--muted);font-size:.9rem}
+h2{font-size:1.35rem;margin:30px 0 14px}.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.subject{cursor:pointer;transition:.2s;text-align:left;color:var(--text);font:inherit}.subject:hover,.subject.active{border-color:var(--accent);background:var(--panel2);transform:translateY(-2px)}
+.subject .symbol{font-size:1.6rem}.subject h3{margin:8px 0 3px}.subject p{color:var(--muted);margin:0;font-size:.9rem}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.toolbar input{flex:1;min-width:220px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--text);font:inherit}
+.lecture{display:flex;justify-content:space-between;gap:16px;align-items:center}.lecture p{margin:4px 0;color:var(--muted)}.tag{font-size:.78rem;color:var(--accent);border:1px solid #28665f;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.notice{color:var(--muted);border-style:dashed}.notice strong{color:var(--text)}
+footer{border-top:1px solid var(--line);padding:22px;text-align:center;color:var(--muted);font-size:.85rem}
+@media(max-width:600px){.stats{grid-template-columns:1fr}.lecture{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Your medical learning workspace</div>
+  <h1>Medical Study Hub</h1>
+  <p>One organized home for your fourth-year subjects, lecture notes, visual mind maps, flashcards, MCQs and clinical cases.</p>
+</header>
+<main>
+  <section class="stats">
+    <div class="stat"><strong>6</strong><span>Core subjects</span></div>
+    <div class="stat"><strong id="lectureCount">1</strong><span>Lecture slot prepared</span></div>
+    <div class="stat"><strong>0%</strong><span>Progress tracking — ready to use</span></div>
+  </section>
+
+  <h2>Browse subjects</h2>
+  <div class="subjects" id="subjects">
+    <button class="subject active" data-subject="all"><div class="symbol">📚</div><h3>All subjects</h3><p>View the full library</p></button>
+    <button class="subject" data-subject="Internal Medicine"><div class="symbol">🫀</div><h3>Internal Medicine</h3><p>Clinical medicine and systems</p></button>
+    <button class="subject" data-subject="Pediatrics"><div class="symbol">🧸</div><h3>Pediatrics</h3><p>Neonatal and child health</p></button>
+    <button class="subject" data-subject="OB/GYN"><div class="symbol">🤰</div><h3>OB/GYN</h3><p>Obstetrics and gynecology</p></button>
+    <button class="subject" data-subject="Anesthesia"><div class="symbol">🩺</div><h3>Anesthesia</h3><p>Perioperative care</p></button>
+    <button class="subject" data-subject="Psychiatry"><div class="symbol">🧠</div><h3>Psychiatry</h3><p>Mental health and behavior</p></button>
+    <button class="subject" data-subject="Family Medicine"><div class="symbol">🏡</div><h3>Family Medicine</h3><p>Primary care and prevention</p></button>
+  </div>
+
+  <h2>Lecture library</h2>
+  <div class="toolbar"><input id="search" type="search" placeholder="Search lectures…"></div>
+  <div id="lectureList">
+    <article class="lecture" data-subject="Pediatrics" data-title="Neonatal Birth Injuries, Physical Exam & Fetal Growth">
+      <div><span class="tag">Pediatrics · First lecture</span><h3>Neonatal Birth Injuries, Physical Exam & Fetal Growth</h3><p>Interactive lecture page with visual mind maps, clinical sections and 5 USMLE-style MCQs.</p></div>
+      <a class="tag" style="text-decoration:none" href="neonatal_clinical_module_with_mindmaps.html">Open lecture →</a>
+    </article>
+  </div>
+
+  <h2>Standard layout for every lecture</h2>
+  <div class="subjects">
+    <div class="subject"><div class="symbol">🗺️</div><h3>Visual Mind Map</h3><p>One clear image summarizing the lecture. Large, readable and easy to revise.</p></div>
+    <div class="subject"><div class="symbol">🃏</div><h3>Flashcards</h3><p>Active recall cards for definitions, mechanisms, signs and management.</p></div>
+    <div class="subject"><div class="symbol">✍️</div><h3>MCQs</h3><p>Section-based questions with answers and explanations.</p></div>
+    <div class="subject"><div class="symbol">🩻</div><h3>Clinical Cases</h3><p>Case-based reasoning that connects basic science to clinical practice.</p></div>
+  </div>
+  <div class="notice" style="margin-top:20px"><strong>Privacy note:</strong> This is a local prototype file. It is not published online and does not provide account login or private cloud hosting. A genuinely private shared site needs an authenticated hosting service and setup in your own account.</div>
+</main>
+<footer>Medical Study Hub · Built to grow lecture by lecture<br>Keep the hub, lecture HTML and both SVG mind-map images together in one folder.</footer>
+<script>
+const buttons=[...document.querySelectorAll('.subject[data-subject]')];
+const cards=[...document.querySelectorAll('#lectureList .lecture')];
+let selected='all';
+function filter(){
+ const q=document.getElementById('search').value.toLowerCase();
+ cards.forEach(c=>{const okSubject=selected==='all'||c.dataset.subject===selected;const okText=c.dataset.title.toLowerCase().includes(q);c.style.display=okSubject&&okText?'flex':'none';});
+}
+buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');selected=b.dataset.subject;filter()}));
+document.getElementById('search').addEventListener('input',filter);
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+<rect width="100%" height="100%" rx="34" fill="#FAF5EB"/>
+<text x="70" y="82" font-family="Arial" font-size="40" font-weight="700" fill="#2C221E">NEONATAL — FETAL GROWTH &amp; MATURITY</text>
+<text x="72" y="125" font-family="Arial" font-size="21" fill="#665A52">Quick visual recall | Timing of insult → growth pattern → newborn findings</text>
+<rect x="70" y="170" width="710" height="390" rx="22" fill="#C7DCD7" stroke="#D9CEBE" stroke-width="3"/>
+<text x="98" y="218" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">ASYMMETRICAL IUGR (~70%)</text>
+<text x="100" y="262" font-family="Arial" font-size="19" fill="#2C221E">• Late onset: after organogenesis; nutrient / oxygen</text>
+<text x="100" y="289" font-family="Arial" font-size="19" fill="#2C221E">  delivery problem</text>
+<text x="100" y="323" font-family="Arial" font-size="19" fill="#2C221E">• Typical mechanism: uteroplacental insufficiency</text>
+<text x="100" y="357" font-family="Arial" font-size="19" fill="#2C221E">• Associations: maternal hypertension, cardiac/renal</text>
+<text x="100" y="384" font-family="Arial" font-size="19" fill="#2C221E">  disease, severe anemia</text>
+<text x="100" y="418" font-family="Arial" font-size="19" fill="#2C221E">• Also placental abruption (as listed in lecture)</text>
+<text x="100" y="452" font-family="Arial" font-size="19" fill="#2C221E">• Head-sparing: head circumference relatively preserved;</text>
+<text x="100" y="479" font-family="Arial" font-size="19" fill="#2C221E">  body is thin</text>
+<rect x="822" y="170" width="710" height="390" rx="22" fill="#E9CD92" stroke="#D9CEBE" stroke-width="3"/>
+<text x="850" y="218" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">SYMMETRICAL IUGR (~30%)</text>
+<text x="852" y="262" font-family="Arial" font-size="19" fill="#2C221E">• Early insult: affects global organ growth and cell</text>
+<text x="852" y="289" font-family="Arial" font-size="19" fill="#2C221E">  division</text>
+<text x="852" y="323" font-family="Arial" font-size="19" fill="#2C221E">• Associations: genetic/chromosomal disorders, congenital</text>
+<text x="852" y="350" font-family="Arial" font-size="19" fill="#2C221E">  heart disease</text>
+<text x="852" y="384" font-family="Arial" font-size="19" fill="#2C221E">• Teratogens or early TORCH infection</text>
+<text x="852" y="418" font-family="Arial" font-size="19" fill="#2C221E">• Proportionately small body; head circumference reduced</text>
+<text x="852" y="445" font-family="Arial" font-size="19" fill="#2C221E">  proportionally</text>
+<rect x="70" y="592" width="710" height="390" rx="22" fill="#F3D9C9" stroke="#D9CEBE" stroke-width="3"/>
+<text x="98" y="640" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">IUGR COMPLICATIONS</text>
+<text x="100" y="684" font-family="Arial" font-size="19" fill="#2C221E">• Stillbirth • preterm labor • low birth weight (&lt;2500 g)</text>
+<text x="100" y="718" font-family="Arial" font-size="19" fill="#2C221E">• Perinatal asphyxia • possible long-term motor /</text>
+<text x="100" y="745" font-family="Arial" font-size="19" fill="#2C221E">  neurologic disability</text>
+<text x="100" y="779" font-family="Arial" font-size="19" fill="#2C221E">• Lecture also notes increased SIDS risk with low birth</text>
+<text x="100" y="806" font-family="Arial" font-size="19" fill="#2C221E">  weight</text>
+<rect x="822" y="592" width="710" height="390" rx="22" fill="#D9E7E1" stroke="#D9CEBE" stroke-width="3"/>
+<text x="850" y="640" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">PRETERM &lt;37 WEEKS</text>
+<text x="852" y="684" font-family="Arial" font-size="19" fill="#2C221E">• Thin shiny skin; visible veins; little subcutaneous fat;</text>
+<text x="852" y="711" font-family="Arial" font-size="19" fill="#2C221E">  lanugo</text>
+<text x="852" y="745" font-family="Arial" font-size="19" fill="#2C221E">• Few sole/palm creases; soft ear cartilage; relatively</text>
+<text x="852" y="772" font-family="Arial" font-size="19" fill="#2C221E">  large head</text>
+<text x="852" y="806" font-family="Arial" font-size="19" fill="#2C221E">• Weak/absent suck and gag reflexes; extended resting</text>
+<text x="852" y="833" font-family="Arial" font-size="19" fill="#2C221E">  posture</text>
+<text x="852" y="867" font-family="Arial" font-size="19" fill="#2C221E">• RDS/apnea, sepsis, IVH, jaundice, NEC, PDA, ROP</text>
+<text x="852" y="901" font-family="Arial" font-size="19" fill="#2C221E">• Long-term: cerebral palsy, learning, vision/hearing</text>
+<text x="852" y="928" font-family="Arial" font-size="19" fill="#2C221E">  difficulties</text>
+<rect x="70" y="1014" width="710" height="390" rx="22" fill="#C7DCD7" stroke="#D9CEBE" stroke-width="3"/>
+<text x="98" y="1062" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">TERM 37–42 WEEKS</text>
+<text x="100" y="1106" font-family="Arial" font-size="19" fill="#2C221E">• Well-developed subcutaneous fat; flexed posture</text>
+<text x="100" y="1140" font-family="Arial" font-size="19" fill="#2C221E">• Creases over soles; firm ear cartilage with recoil</text>
+<text x="100" y="1174" font-family="Arial" font-size="19" fill="#2C221E">• Intact suck, gag and grasp reflexes</text>
+<text x="100" y="1208" font-family="Arial" font-size="19" fill="#2C221E">• Lecture gives normal birth weight as 2,500–4,500 g</text>
+<rect x="822" y="1014" width="710" height="390" rx="22" fill="#E9CD92" stroke="#D9CEBE" stroke-width="3"/>
+<text x="850" y="1062" font-family="Arial" font-size="26" font-weight="700" fill="#2C221E">POST-TERM &gt;42 WEEKS</text>
+<text x="852" y="1106" font-family="Arial" font-size="19" fill="#2C221E">• Peeling / loose pale skin; long nails; abundant scalp</text>
+<text x="852" y="1133" font-family="Arial" font-size="19" fill="#2C221E">  hair</text>
+<text x="852" y="1167" font-family="Arial" font-size="19" fill="#2C221E">• Absent lanugo and reduced/absent vernix</text>
+<text x="852" y="1201" font-family="Arial" font-size="19" fill="#2C221E">• Meconium staining may occur with placental insufficiency</text>
+<text x="852" y="1235" font-family="Arial" font-size="19" fill="#2C221E">• Lecture notes increased mortality if delivery is delayed</text>
+<text x="852" y="1262" font-family="Arial" font-size="19" fill="#2C221E">  ≥3 weeks</text>
+<text x="72" y="1070" font-family="Arial" font-size="17" fill="#665A52">Visual revision • Summarized from the uploaded lecture</text></svg>
