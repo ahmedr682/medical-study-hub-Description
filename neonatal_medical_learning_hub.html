@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neonatal Birth Injuries, Physical Exam & Fetal Growth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main:#FAF5EB; --card-ochre:#E9CD92; --card-sage:#C7DCD7;
+      --callout-ivory:#FBF8F1; --text-main:#2C221E; --text-muted:#665A52;
+      --accent-rust:#C85A32; --accent-teal:#2A6F62;
+      --border-hairline:1px solid #D9CEBE; --border-sage-hairline:1px solid #A2C4BC;
+      --radius-diagonal:18px 0px 18px 0px; --radius-pill:9999px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{width:100%;min-height:100%;-webkit-text-size-adjust:100%}
+    body{
+      background:var(--bg-main);color:var(--text-main);
+      font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+      line-height:1.6;width:100%;max-width:none;min-height:100vh;
+      margin:0;padding:clamp(12px,2vw,24px);
+    }
+    header{background:#fff;border:var(--border-hairline);border-radius:var(--radius-diagonal);padding:28px 32px;margin-bottom:24px}
+    .micro-label{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-rust);display:block;margin-bottom:6px}
+    h1{font-size:clamp(23px,3vw,32px);font-weight:800;color:var(--text-main);line-height:1.25;margin-bottom:12px}
+    .header-desc{font-size:15px;color:var(--text-muted);max-width:900px;margin-bottom:20px}
+    .progress-container{background:var(--callout-ivory);border:var(--border-hairline);border-radius:var(--radius-pill);padding:12px 20px;display:flex;align-items:center;gap:16px}
+    .progress-bar-bg{flex:1;height:10px;background:#EBE3D3;border-radius:var(--radius-pill);overflow:hidden}
+    .progress-bar-fill{height:100%;width:0%;background:var(--accent-teal);transition:width .4s ease}
+    .progress-text{font-size:12px;font-weight:700;color:var(--accent-teal);white-space:nowrap}
+    .nav-tabs{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap}
+    .tab-btn{background:#fff;border:var(--border-hairline);border-radius:var(--radius-pill);padding:10px 22px;font-size:13px;font-weight:700;color:var(--text-main);cursor:pointer;transition:all .2s ease}
+    .tab-btn:hover{background:var(--card-sage)}
+    .tab-btn.active{background:var(--accent-teal);color:#fff;border-color:var(--accent-teal)}
+    .section-content{display:none}.section-content.active{display:block}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+    .card-ochre{background:var(--card-ochre);border:var(--border-hairline);border-radius:var(--radius-diagonal);padding:24px;margin-bottom:24px}
+    .card-sage{background:var(--card-sage);border:var(--border-sage-hairline);border-radius:var(--radius-diagonal);padding:24px;margin-bottom:24px}
+    .callout-box{background:var(--callout-ivory);border:var(--border-hairline);border-radius:12px;padding:18px;margin-top:14px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:var(--radius-pill);font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;margin-right:6px}
+    .badge-hy{background:#E85D04;color:#fff}.badge-rf{background:#D00000;color:#fff}.badge-mech{background:var(--accent-teal);color:#fff}
+    .drawer{background:#fff;border:var(--border-hairline);border-radius:12px;margin-bottom:12px;overflow:hidden}
+    .drawer-header{padding:16px 20px;font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#fff;user-select:none;gap:12px}
+    .drawer-header:hover{background:var(--callout-ivory)}
+    .drawer-content{display:none;padding:18px 20px;border-top:var(--border-hairline);background:var(--callout-ivory);font-size:13.5px}
+    .drawer.open .drawer-content{display:block}
+    .slider-box{background:#fff;border:var(--border-hairline);border-radius:var(--radius-diagonal);padding:24px;margin-bottom:24px}
+    .slider-control{width:100%;margin:16px 0;accent-color:var(--accent-rust)}
+    .table-container{overflow-x:auto;background:#fff;border:var(--border-hairline);border-radius:12px;margin-top:14px}
+    table{width:100%;border-collapse:collapse;font-size:13px;text-align:left;min-width:620px}
+    th{background:#F4ECE0;padding:12px 16px;font-weight:800;text-transform:uppercase;font-size:11px;letter-spacing:.5px;border-bottom:var(--border-hairline)}
+    td{padding:12px 16px;border-bottom:var(--border-hairline);vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    .quiz-card{background:#fff;border:2px solid var(--accent-rust);border-radius:var(--radius-diagonal);padding:28px;margin-top:32px}
+    .quiz-stepper{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
+    .option-btn{display:block;width:100%;text-align:left;background:var(--callout-ivory);border:var(--border-hairline);border-radius:10px;padding:14px 18px;margin-bottom:10px;font-size:13.5px;font-weight:600;color:var(--text-main);cursor:pointer;transition:all .2s ease}
+    .option-btn:hover{background:#F0E6D2}
+    .option-btn.selected-correct{background:#D1E7DD;border-color:#0F5132;color:#0F5132}
+    .option-btn.selected-incorrect{background:#F8D7DA;border-color:#842029;color:#842029}
+    .feedback-box{margin-top:14px;padding:14px 18px;border-radius:10px;font-size:13px;display:none}
+    .feedback-box.show{display:block}.feedback-correct{background:#D1E7DD;color:#0F5132;border:1px solid #BADBCC}
+    .feedback-incorrect{background:#F8D7DA;color:#842029;border:1px solid #F5C2C7}
+    .quiz-nav-btn{background:var(--accent-rust);color:#fff;border:none;padding:10px 24px;border-radius:var(--radius-pill);font-weight:700;cursor:pointer;float:right;margin-top:16px}
+    .quiz-nav-btn:disabled{background:#ccc;cursor:not-allowed}
+    .score-badge{background:var(--accent-teal);color:#fff;padding:6px 14px;border-radius:var(--radius-pill);font-size:12px;font-weight:800}
+    @media(max-width:768px){
+      .grid-2{grid-template-columns:1fr}
+      header{padding:22px 18px}
+      .card-ochre,.card-sage,.slider-box,.quiz-card{padding:18px}
+      .progress-container{gap:9px;padding:10px 12px}
+      .progress-container .micro-label{font-size:9px;letter-spacing:.7px}
+      .tab-btn{padding:9px 14px;font-size:12px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <span class="micro-label">Pediatric Clinical Module • High-Yield Review</span>
+  <h1>Neonatal Birth Injuries, Physical Exam & Fetal Growth</h1>
+  <p class="header-desc">An interactive clinical learning framework covering delivery trauma, cranial anomalies, nerve palsies, neonatal dermatologic signs, intrauterine growth restriction (IUGR), and gestational maturity complications.</p>
+  <div class="progress-container">
+    <span class="micro-label" style="margin-bottom:0;">Module Progress</span>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="moduleProgress"></div></div>
+    <span class="progress-text" id="progressText">0% Completed</span>
+  </div>
+</header>
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="switchTab('tab-injuries', this)">1. Birth Trauma & Nerve Palsies</button>
+  <button class="tab-btn" onclick="switchTab('tab-exam', this)">2. Physical Exam & Cutaneous Signs</button>
+  <button class="tab-btn" onclick="switchTab('tab-growth', this)">3. Fetal Growth & Gestational Spectrum</button>
+  <button class="tab-btn" onclick="switchTab('tab-vignettes', this)">4. Clinical MCQs</button>
+  <button class="tab-btn" onclick="switchTab('tab-mindmap', this)">5. Mind Map</button>
+  <button class="tab-btn" onclick="switchTab('tab-flashcards', this)">6. Flashcards</button>
+  <button class="tab-btn" onclick="switchTab('tab-bank', this)">7. Question Bank</button>
+  <button class="tab-btn" onclick="switchTab('tab-cases', this)">8. Clinical Cases</button>
+</div>
+
+<div id="tab-injuries" class="section-content active">
+  <div class="card-ochre">
+    <span class="badge badge-hy">High-Yield USMLE Distinction</span>
+    <h2 style="font-size:20px;font-weight:800;margin-bottom:8px;">1. Scalp & Cranial Vault Birth Trauma</h2>
+    <p style="font-size:14px;">Mechanical forces during delivery (pressure against maternal pelvic bones or instrument assistance with forceps/vacuum) lead to distinct scalp and bone injuries. Differentiation relies on anatomical layers and suture lines.</p>
+    <div style="margin-top:18px;">
+      <div class="drawer" onclick="toggleDrawer(this)"><div class="drawer-header"><span>Caput Succedaneum (Diffuse Subcutaneous Scalp Edema)</span><span style="color:var(--accent-rust);">Click to Expand &#9660;</span></div><div class="drawer-content"><span class="badge badge-mech">Anatomical Layer</span> Soft tissue edema above the epicranial aponeurosis.<br><span class="badge badge-hy">Key Diagnostic Feature</span> <strong>CROSSES suture lines</strong>.<br><strong>Onset & Course:</strong> Present at birth; resolves spontaneously within 2–3 days; may lead to scalp molding for several weeks.</div></div>
+      <div class="drawer" onclick="toggleDrawer(this)"><div class="drawer-header"><span>Cephalohematoma (Subperiosteal Hemorrhage)</span><span style="color:var(--accent-rust);">Click to Expand &#9660;</span></div><div class="drawer-content"><span class="badge badge-mech">Anatomical Layer</span> Subperiosteal hemorrhage bound by skull periosteum.<br><span class="badge badge-hy">Key Diagnostic Feature</span> <strong>Does NOT cross suture lines</strong>.<br><strong>Onset & Course:</strong> Appears 12–24 hours post-delivery; resolves over 2 weeks to 3 months; may calcify or lead to jaundice (secondary to RBC breakdown); may harbor an underlying linear skull fracture.</div></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card-sage">
+      <span class="badge badge-rf">Nerve Roots & Reflexes</span>
+      <h3 style="font-size:17px;font-weight:800;margin-bottom:10px;">2. Brachial Plexus Injury Spectrum</h3>
+      <div class="callout-box"><strong style="color:var(--accent-teal);">Erb-Duchenne Palsy (Upper Trunk: C5–C6)</strong><p style="font-size:13px;margin-top:4px;"><strong>Etiology:</strong> Excessive lateral traction on the neck during delivery (e.g., shoulder dystocia).<br><strong>Presentation:</strong> Inability to abduct shoulder, externally rotate, or supinate forearm → <strong>"Waiter's Tip" posture</strong> (adducted, internally rotated arm, extended elbow, flexed wrist).<br><strong>Reflex:</strong> Asymmetric or absent <strong>Moro reflex</strong> on the affected side.</p></div>
+      <div class="callout-box" style="margin-top:12px;"><strong style="color:var(--accent-rust);">Klumpke Palsy (Lower Trunk: C7–C8 ± T1)</strong><p style="font-size:13px;margin-top:4px;"><strong>Etiology:</strong> Excessive upward traction on the arm during delivery (e.g., breech delivery).<br><strong>Presentation:</strong> Paralysis of intrinsic hand muscles resulting in a <strong>"Total Claw Hand"</strong>.<br><strong>Reflex & Autonomic:</strong> <strong>Absent grasp reflex</strong>; may co-exist with <strong>Horner Syndrome</strong> (triad of ptosis, miosis, and anhidrosis) due to T1 sympathetic chain injury.</p></div>
+      <div style="margin-top:14px;font-size:12.5px;background:#fff;padding:12px;border-radius:8px;border:var(--border-hairline);"><strong>Management Protocol:</strong> Proper positioning, partial immobilization, physiotherapy (massage and passive ROM exercises). Perform surgical <strong>neuroplasty</strong> if no recovery occurs within 3–6 months.</div>
+    </div>
+    <div class="card-sage">
+      <span class="badge badge-hy">Clinical Correlations</span>
+      <h3 style="font-size:17px;font-weight:800;margin-bottom:10px;">3. Facial Nerve & Bone Trauma</h3>
+      <div class="drawer" onclick="toggleDrawer(this)"><div class="drawer-header"><span>Clavicular Fracture (Most Common Delivery Bone Injury)</span><span>&#9660;</span></div><div class="drawer-content"><strong>Etiology:</strong> Shoulder dystocia in vertex deliveries or arm extension in breech presentations.<br><strong>Signs:</strong> Asymmetric Moro reflex, local tenderness, and a palpable callus within one week.<br><strong>Management:</strong> Immobilization of the arm and shoulder.</div></div>
+      <div class="drawer" onclick="toggleDrawer(this)"><div class="drawer-header"><span>Facial Nerve Palsy (CN VII Compression)</span><span>&#9660;</span></div><div class="drawer-content"><strong>Etiology:</strong> In utero pressure against the sacral promontory or forceps compression over the facial nerve.<br><strong>Presentation:</strong> Unilateral weakness involving the <em>entire side of the face including the forehead</em>.<br><strong>Management:</strong> Eye care (protective lubrication); neuroplasty if no improvement (indicating torn nerve fibers).</div></div>
+      <div class="slider-box" style="margin-top:14px;padding:16px;"><label style="font-size:11px;font-weight:800;text-transform:uppercase;color:var(--accent-rust);">Interactive Skull Fracture Classification</label><input type="range" min="1" max="2" value="1" class="slider-control" id="fractureSlider" oninput="updateFractureSlider(this.value)"><div id="fractureOutput" style="font-size:13px;color:var(--text-main);font-weight:600;">Type: Linear Skull Fracture → Cause: Pressure in utero or forceps. Outcome: Most common type; asymptomatic, no treatment required.</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="tab-exam" class="section-content">
+  <div class="card-ochre">
+    <span class="badge badge-hy">Dermatologic Diagnostic Matrix</span>
+    <h2 style="font-size:20px;font-weight:800;margin-bottom:8px;">Common Neonatal Cutaneous Manifestations</h2>
+    <p style="font-size:14px;">Accurate differentiation between benign transient skin findings and pathologic or systemic indicators is essential during newborn physical examination.</p>
+    <div class="table-container"><table><thead><tr><th>Lesion / Finding</th><th>Clinical Presentation & Histology</th><th>Prognosis & Management</th></tr></thead><tbody>
+      <tr><td><strong>Cutis Marmorata</strong></td><td>Lacy, reticulated vascular mottling over body when baby is cooled.</td><td>Improves over 1st month of life; pathological if persistent.</td></tr>
+      <tr><td><strong>Salmon Patch (Nevus Simplex)</strong></td><td>Pale, pink vascular macules on nuchal area, glabella, or eyelids. Darkens during crying.</td><td>Benign transient capillary malformation; usually disappears spontaneously. Reassurance only.</td></tr>
+      <tr><td><strong>Mongolian Spots</strong></td><td>Blue to slate-gray macules over presacral region, back, or posterior thighs due to dermal arrested melanocytes (more common in nonwhite infants).</td><td>Fades over first few years. <span class="badge badge-rf">Differential</span> Must distinguish from child abuse bruising.</td></tr>
+      <tr><td><strong>Erythema Toxicum Neonatorum</strong></td><td>Firm, yellow-white papules/pustules with an erythematous base; peaks on 2nd day of life. Contains <strong>eosinophils</strong>.</td><td>Benign self-limiting lesion; requires no intervention.</td></tr>
+      <tr><td><strong>Superficial Hemangioma (Strawberry)</strong></td><td>Bright red, protuberant, sharply demarcated lesion appearing in first 2 months (face, scalp, chest).</td><td>Rapid expansion → stationary → involution (most by 5–9 years). Rx: Beta-blockers, embolization.</td></tr>
+      <tr><td><strong>Deep Hemangioma (Cavernous)</strong></td><td>Firm, cystic lesion with a bluish hue; less likely to regress.</td><td>Rx (steroids, pulsed laser) indicated only if large and interfering with organ function.</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="card-sage">
+    <span class="badge badge-rf">Systemic Examination Pearls</span>
+    <h3 style="font-size:18px;font-weight:800;margin-bottom:12px;">Head, Eye, & Extremity Exam Findings</h3>
+    <div class="grid-2">
+      <div class="callout-box"><strong style="color:var(--accent-teal);">Preauricular Tags / Pits</strong><p style="font-size:13px;margin-top:4px;">Infants with preauricular tags or pits must be evaluated for <strong>hearing loss</strong> and undergo renal ultrasound to screen for <strong>genitourinary anomalies</strong>.</p></div>
+      <div class="callout-box"><strong style="color:var(--accent-rust);">Ocular Malformations</strong><p style="font-size:13px;margin-top:4px;">• <strong>Coloboma of Iris:</strong> Cleft at the 6 o'clock position; associated with <strong>CHARGE association</strong>.<br>• <strong>Aniridia:</strong> Hypoplasia of the iris (may extend to retina); associated with <strong>Wilms tumor</strong>.</p></div>
+    </div>
+    <div style="margin-top:14px;background:#fff;padding:14px;border-radius:10px;border:var(--border-hairline);font-size:13px;"><strong>Polydactyly:</strong> Presence of >5 fingers or toes. Requires no treatment if the extra digit has good blood supply and intact structural alignment.</div>
+  </div>
+</div>
+
+<div id="tab-growth" class="section-content">
+  <div class="card-ochre">
+    <span class="badge badge-hy">IUGR Classification</span>
+    <h2 style="font-size:20px;font-weight:800;margin-bottom:8px;">Intrauterine Growth Restriction (IUGR)</h2>
+    <p style="font-size:14px;">IUGR represents pathologically impaired fetal growth resulting in birth weight below expectations. The pattern of growth restriction identifies the timing and mechanism of fetal insult.</p>
+    <div class="grid-2" style="margin-top:16px;">
+      <div class="callout-box" style="background:#fff;"><span class="badge badge-hy">Head-Sparing (~70%)</span><h4 style="font-size:16px;font-weight:800;color:var(--accent-teal);">Asymmetrical IUGR</h4><p style="font-size:13px;margin-top:6px;">• <strong>Timing & Cause:</strong> Relatively late onset after organogenesis; caused by abnormal nutrient/O2 delivery.<br>• <strong>Etiologies:</strong> Uteroplacental insufficiency secondary to maternal disease (hypertension, cardiac, renal, severe anemia) or placental abruption.<br>• <strong>Proportions:</strong> <strong>Head circumference is normal</strong>; body and limbs are thin and small.<br>• <strong>Complication:</strong> Neurologic hypoxia/asphyxia if oxygen delivery to brain drops.</p></div>
+      <div class="callout-box" style="background:#fff;"><span class="badge badge-mech">Global Insult (~30%)</span><h4 style="font-size:16px;font-weight:800;color:var(--accent-rust);">Symmetrical IUGR</h4><p style="font-size:13px;margin-top:6px;">• <strong>Timing & Cause:</strong> Early in utero insult affecting global organ growth and cell division.<br>• <strong>Etiologies:</strong> Genetic syndromes, chromosomal aneuploidy, congenital heart disease, teratogens, or early intrauterine <strong>TORCH infections</strong>.<br>• <strong>Proportions:</strong> Entire body is proportionally small; <strong>head circumference is proportional to body size</strong>.</p></div>
+    </div>
+    <div style="background:var(--callout-ivory);border:var(--border-hairline);padding:14px 18px;border-radius:12px;margin-top:12px;font-size:13px;"><strong style="color:var(--accent-rust);">Complications of IUGR:</strong> Stillbirth, preterm labor, low birth weight (&lt;2500 g) with ↑ risk of sudden infant death syndrome (SIDS), perinatal asphyxia, and potential long-term motor/neurological disabilities.</div>
+  </div>
+  <div class="slider-box">
+    <span class="badge badge-hy">Interactive Maturity Spectrum</span>
+    <h3 style="font-size:18px;font-weight:800;margin-bottom:6px;">Gestational Age & Maturity Spectrum</h3>
+    <p style="font-size:13px;color:var(--text-muted);">Adjust the gestational age slider to observe physical examination characteristics and risk profiles.</p>
+    <input type="range" min="28" max="43" value="32" class="slider-control" id="gestationalSlider" oninput="updateMaturitySlider(this.value)">
+    <div id="maturityCard" class="callout-box" style="background:#fff;border:2px solid var(--accent-rust);"></div>
+  </div>
+</div>
+
+<div id="tab-vignettes" class="section-content">
+  <div class="quiz-card">
+    <div class="quiz-stepper"><div><span class="micro-label">USMLE Step Self-Assessment</span><h2 style="font-size:20px;font-weight:800;" id="quizQuestionTitle">Question 1 of 5</h2></div><span class="score-badge" id="scoreTracker">Score: 0 / 5</span></div>
+    <p style="font-size:14.5px;font-weight:500;margin-bottom:18px;line-height:1.5;" id="quizVignetteText"></p>
+    <div id="quizOptionsContainer"></div>
+    <div id="quizFeedbackBox" class="feedback-box"></div>
+    <button id="nextQuestionBtn" class="quiz-nav-btn" onclick="nextQuestion()" disabled>Next Question &rarr;</button><div style="clear:both;"></div>
+  </div>
+</div>
+
+
+<div id="tab-mindmap" class="section-content">
+ <div class="card-ochre"><span class="badge badge-hy">Complete lecture overview</span><h2>Visual Mind Map</h2><p>The complete lecture at a glance. Zoom in to revise the key links.</p><img src="Neonatal Birth Injuries Mind Map.png" alt="Neonatal Birth Injuries, Physical Exam and Fetal Growth visual mind map" style="display:block;width:100%;height:auto;max-width:1200px;margin:14px auto 22px;border-radius:12px;border:1px solid var(--border-hairline)"><h2>Interactive Mind Map</h2>
+ <p>Click each branch to reveal the connected concepts and clinical links.</p>
+ <div class="grid-2">
+  <div class="callout-box"><button class="map-toggle">1. Birth trauma ＋</button><div class="map-detail" hidden>
+   <b>Scalp:</b> Caput succedaneum (crosses sutures; present at birth; resolves in 2–3 days) vs cephalohematoma (subperiosteal; does not cross; appears 12–24 h; jaundice/calcification/linear fracture).<br>
+   <b>Brachial plexus:</b> Erb C5–C6 → waiter’s tip + impaired Moro; Klumpke C7–C8±T1 → claw hand + absent grasp ± Horner syndrome.<br>
+   <b>Other injuries:</b> clavicle fracture → tenderness/asymmetric Moro/callus; CN VII palsy → entire ipsilateral face including forehead.
+  </div></div>
+  <div class="callout-box"><button class="map-toggle">2. Neonatal skin findings ＋</button><div class="map-detail" hidden>
+   Cutis marmorata → cooling-related reticulated mottling. Salmon patch → pink macule, darkens with crying. Mongolian spot → slate-gray dermal melanocytes; distinguish from bruising. Erythema toxicum → day 2, eosinophils, benign. Superficial hemangioma → red/proliferative then involution. Deep hemangioma → bluish, less likely to regress.
+  </div></div>
+  <div class="callout-box"><button class="map-toggle">3. Physical examination ＋</button><div class="map-detail" hidden>
+   Preauricular tags/pits → hearing assessment + renal ultrasound. Iris coloboma at 6 o’clock → CHARGE association. Aniridia → Wilms tumor association. Polydactyly → assess blood supply and structural alignment.
+  </div></div>
+  <div class="callout-box"><button class="map-toggle">4. IUGR ＋</button><div class="map-detail" hidden>
+   Asymmetrical (~70%) → late nutrient/O₂ delivery problem, head sparing, uteroplacental insufficiency/maternal disease. Symmetrical (~30%) → early global insult, proportional smallness, genetic/chromosomal causes, congenital heart disease, teratogens or TORCH. Complications: stillbirth, preterm labor, low birth weight, asphyxia, SIDS risk and long-term neurodevelopmental effects.
+  </div></div>
+  <div class="callout-box"><button class="map-toggle">5. Gestational maturity ＋</button><div class="map-detail" hidden>
+   Preterm &lt;37 weeks → thin shiny skin, visible veins, little fat, lanugo, few creases, soft ear cartilage, extended posture, weak suck/gag; RDS/apnea, sepsis, IVH, jaundice, NEC, PDA, ROP. Term 37–42 weeks → fat, flexed posture, sole creases, firm ear recoil, intact reflexes. Post-term &gt;42 weeks → peeling pale skin, long nails, absent lanugo/vernix, meconium staining.
+  </div></div>
+  <div class="callout-box"><button class="map-toggle">6. Mechanism → clinical effect ＋</button><div class="map-detail" hidden>
+   Subperiosteal RBC breakdown → bilirubin load → jaundice. Lateral neck traction → upper plexus injury. Upward arm traction → lower plexus injury. Placental insufficiency → reduced nutrient/O₂ delivery → head-sparing IUGR. Early global insult → reduced overall growth/cell division → symmetrical IUGR.
+  </div></div>
+ </div></div>
+</div>
+<div id="tab-flashcards" class="section-content">
+ <div class="card-sage"><span class="badge badge-hy">Active recall</span><h2>Interactive Flashcards · 30 cards</h2>
+ <p>Tap the card to reveal the answer. Mark difficult cards for a focused review round.</p>
+ <div class="progress-container"><span id="fcCount">1 / 30</span><div class="progress-bar-bg"><div id="fcBar" class="progress-bar-fill"></div></div><span id="fcFlag">New</span></div>
+ <div id="fcCard" class="callout-box" style="min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:18px;font-weight:700;cursor:pointer" role="button">Question</div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="tab-btn" id="fcPrev">← Previous</button><button class="tab-btn" id="fcFlip">Flip</button><button class="tab-btn" id="fcNext">Next →</button><button class="tab-btn" id="fcEasy">Easy</button><button class="tab-btn" id="fcHard">Needs revision</button><button class="tab-btn" id="fcReview">Review difficult</button><button class="tab-btn" id="fcShuffle">Shuffle</button></div>
+ </div>
+</div>
+<div id="tab-bank" class="section-content">
+ <div class="quiz-card"><span class="micro-label">Expanded question bank</span><h2 id="bankTitle">Question 1 of 30</h2><div class="progress-container"><span id="bankScore" class="score-badge">Score: 0 / 30</span><div class="progress-bar-bg"><div id="bankBar" class="progress-bar-fill"></div></div></div>
+ <p id="bankStem" style="margin:18px 0"></p><div id="bankOptions"></div><div id="bankFeedback" class="feedback-box"></div>
+ <button class="quiz-nav-btn" id="bankNext" disabled>Next →</button><button class="tab-btn" id="bankPrev">← Previous</button><div style="clear:both"></div></div>
+</div>
+<div id="tab-cases" class="section-content">
+ <div class="card-ochre"><span class="badge badge-hy">Clinical reasoning</span><h2>Clinical Case Simulator</h2><div id="caseContent"></div><button class="tab-btn" id="caseNext">Next case →</button></div>
+</div>
+
+<script>
+let visitedTabs=new Set(['tab-injuries']);
+function updateProgress(){let percent=Math.round((visitedTabs.size/8)*100);document.getElementById('moduleProgress').style.width=percent+'%';document.getElementById('progressText').innerText=percent+'% Completed';}
+function switchTab(tabId,btnElement){document.querySelectorAll('.section-content').forEach(sec=>sec.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('active'));document.getElementById(tabId).classList.add('active');btnElement.classList.add('active');visitedTabs.add(tabId);updateProgress();window.scrollTo({top:0,behavior:'smooth'});}
+function toggleDrawer(element){element.classList.toggle('open');}
+function updateFractureSlider(val){const out=document.getElementById('fractureOutput');if(val==1){out.innerHTML='<strong>Type: Linear Skull Fracture</strong> → Cause: Pressure in utero or forceps. Outcome: Most common type; asymptomatic, no treatment required.';}else{out.innerHTML='<strong>Type: Depressed Skull Fracture</strong> → Cause: Concentrated bone trauma. Outcome: Requires surgical elevation to prevent underlying cortical pressure injury.';}}
+function updateMaturitySlider(weeks){const card=document.getElementById('maturityCard');if(weeks<37){card.style.borderColor='var(--accent-rust)';card.innerHTML=`<span class="badge badge-rf">Preterm Infant (&lt;37 Weeks)</span><h4 style="font-size:16px;font-weight:800;">Gestational Age: ${weeks} Weeks</h4><p style="font-size:13px;margin-top:6px;"><strong>Physical Exam Findings:</strong> Thin, smooth, shiny skin with visible veins; minimal subcutaneous fat deposits; lanugo hair over body; minimal sole/palm creases; large head relative to body; soft ear cartilage; extended resting posture; weak/absent suck and gag reflexes.<br><strong>Acute Complications:</strong> Anemia, breathing issues (Respiratory Distress Syndrome, apnea), neonatal sepsis, Intraventricular Hemorrhage (IVH), jaundice, Necrotizing Enterocolitis (NEC), Patent Ductus Arteriosus (PDA), Retinopathy of Prematurity (ROP).<br><strong>Long-Term Deficits:</strong> Cerebral palsy, learning impairments, vision/hearing deficits, dental and psychological issues.</p>`;}else if(weeks>=37&&weeks<=42){card.style.borderColor='var(--accent-teal)';card.innerHTML=`<span class="badge badge-mech">Full Term Infant (37–42 Weeks)</span><h4 style="font-size:16px;font-weight:800;">Gestational Age: ${weeks} Weeks</h4><p style="font-size:13px;margin-top:6px;"><strong>Physical Exam Findings:</strong> Well-developed subcutaneous fat, flexed posture, creases covering soles of feet, firm ear cartilage with instant recoil, intact suck/gag/grasp reflexes.<br><strong>Growth Category:</strong> Normal birth weight (2,500–4,500 g). Low incidence of birth trauma or metabolic disruption.</p>`;}else{card.style.borderColor='#D00000';card.innerHTML=`<span class="badge badge-rf">Post-term Infant (&gt;42 Weeks)</span><h4 style="font-size:16px;font-weight:800;">Gestational Age: ${weeks} Weeks</h4><p style="font-size:13px;margin-top:6px;"><strong>Physical Exam Findings:</strong> Increased birth weight, total absence of lanugo, decreased/absent vernix caseosa, desquamating (peeling), pale, loose skin; long fingernails and abundant scalp hair.<br><strong>High-Yield Mortality Warning:</strong> Placental insufficiency leads to <strong>meconium staining</strong> of skin, cord, and nails. Delaying delivery <strong>≥3 weeks past term causes a significant increase in mortality</strong>.</p>`;}}
+const quizData=[
+{vignette:'A 12-hour-old newborn born via difficult forceps-assisted delivery presents with a firm scalp swelling over the parietal area. On examination, the swelling is non-tender and strictly bounded by cranial suture lines. What is the most likely diagnosis and associated feature?',options:[{text:'Cephalohematoma; may harbor an underlying linear skull fracture and cause hyperbilirubinemia',correct:true,feedback:'CORRECT! Cephalohematoma is a subperiosteal hemorrhage that does NOT cross suture lines. It appears 12–24 hours after birth, takes 2 weeks to 3 months to resolve, and carries risks of jaundice (RBC breakdown) and underlying linear skull fracture.'},{text:'Caput succedaneum; requires emergency surgical evacuation to prevent cortical injury',correct:false,feedback:'INCORRECT. Caput succedaneum is diffuse edematous swelling of scalp soft tissue that CROSSES suture lines, presents at birth, and disappears in a few days without surgery.'},{text:'Depressed skull fracture; managed conservatively with positioning and physical therapy',correct:false,feedback:'INCORRECT. Depressed fractures require surgical elevation to prevent cortical injury, whereas this localized subperiosteal collection bounded by sutures is a cephalohematoma.'}]},
+{vignette:'Following a difficult labor complicated by shoulder dystocia, a newborn presents with a limp right arm held in an adducted, internally rotated position with an extended elbow and flexed wrist. The Moro reflex is absent on the right, but the palmar grasp reflex is normal. Which nerve roots were injured?',options:[{text:'C5–C6 roots (Erb-Duchenne Palsy)',correct:true,feedback:'CORRECT! Excessive lateral traction on the neck during shoulder dystocia injures upper trunk C5–C6 nerve roots, causing Erb’s palsy (“Waiter’s tip” posture with impaired Moro reflex and preserved palmar grasp).'},{text:'C7–C8 ± T1 roots (Klumpke Palsy)',correct:false,feedback:'INCORRECT. Klumpke palsy involves lower trunk C7–T1 injury, presenting with intrinsic hand paralysis (“claw hand”), absent grasp reflex, and possible Horner syndrome.'},{text:'Facial nerve (CN VII) main trunk',correct:false,feedback:'INCORRECT. Facial nerve palsy causes unilateral paralysis of the entire side of the face including the forehead, not extremity muscle weakness.'}]},
+{vignette:'A newborn infant is found to have a head circumference at the 50th percentile, while the body weight and length are below the 3rd percentile. Maternal history is notable for severe pregnancy-induced hypertension. Which statement regarding this infant’s condition is correct?',options:[{text:'This is asymmetrical IUGR resulting from late uteroplacental insufficiency',correct:true,feedback:'CORRECT! Asymmetrical IUGR (~70% of cases) is a late-onset head-sparing growth restriction caused by uteroplacental insufficiency secondary to maternal conditions such as hypertension.'},{text:'This is symmetrical IUGR caused by early intrauterine TORCH infection',correct:false,feedback:'INCORRECT. Symmetrical IUGR (~30%) occurs early in gestation and causes global, proportional growth restriction where head circumference is reduced in proportion to the body.'},{text:'The infant has fetal macrosomia with low risk of perinatal asphyxia',correct:false,feedback:'INCORRECT. Fetal macrosomia (LGA) refers to birth weight >4,500g at term. Growth-restricted infants are at increased risk for perinatal asphyxia and SIDS.'}]},
+{vignette:'A neonate is examined on day 2 of life. The infant has firm yellow-white papules on an erythematous base across the trunk. Microscopic evaluation of papular contents reveals abundant eosinophils. What is the most appropriate management?',options:[{text:'Reassurance; this is benign Erythema Toxicum Neonatorum requiring no treatment',correct:true,feedback:'CORRECT! Erythema toxicum neonatorum presents on day 2 of life with firm yellow-white papules/pustules containing eosinophils on an erythematous base. It is a benign, self-limiting condition.'},{text:'Oral propranolol therapy to induce vascular involution',correct:false,feedback:'INCORRECT. Propranolol or beta-blockers are indicated for rapidly expanding superficial (strawberry) hemangiomas, not benign erythema toxicum.'},{text:'Immediate intravenous antibiotic therapy for neonatal sepsis',correct:false,feedback:'INCORRECT. Although the lesions look like pustules, the presence of eosinophils confirms benign erythema toxicum neonatorum rather than bacterial infection.'}]},
+{vignette:'An infant born at 43 weeks gestation presents with peeling, pale skin, long fingernails, complete absence of lanugo, and meconium staining of the umbilical cord. Which of the following is true regarding post-term infants?',options:[{text:'Delaying delivery ≥3 weeks past term causes a significant increase in mortality',correct:true,feedback:'CORRECT! Post-term infants (>42 weeks) frequently show desquamating skin, lack of lanugo/vernix, long nails, and meconium staining due to placental insufficiency. Delaying delivery ≥3 weeks past term significantly elevates mortality.'},{text:'Post-term infants are at high risk for Retinopathy of Prematurity (ROP) and PDA',correct:false,feedback:'INCORRECT. ROP and PDA are classic complications of prematurity (<37 weeks), not post-term gestations.'},{text:'The physical exam findings are indicative of early TORCH infection',correct:false,feedback:'INCORRECT. TORCH infections cause early global insult resulting in symmetrical IUGR, whereas peeling skin, long nails, and meconium staining are classic for post-term maturity.'}]}
+];
+let currentQ=0,score=0,answered=false;
+function renderQuestion(){answered=false;const q=quizData[currentQ];document.getElementById('quizQuestionTitle').innerText=`Question ${currentQ+1} of 5`;document.getElementById('quizVignetteText').innerText=q.vignette;const fb=document.getElementById('quizFeedbackBox');fb.className='feedback-box';fb.innerText='';document.getElementById('nextQuestionBtn').disabled=true;document.getElementById('nextQuestionBtn').style.display='inline-block';const container=document.getElementById('quizOptionsContainer');container.innerHTML='';q.options.forEach((opt,idx)=>{const btn=document.createElement('button');btn.className='option-btn';btn.innerText=`${String.fromCharCode(65+idx)}. ${opt.text}`;btn.onclick=()=>selectOption(idx);container.appendChild(btn);});}
+function selectOption(idx){if(answered)return;answered=true;const q=quizData[currentQ],selected=q.options[idx],btns=document.querySelectorAll('.option-btn'),fb=document.getElementById('quizFeedbackBox');if(selected.correct){score++;btns[idx].classList.add('selected-correct');fb.className='feedback-box show feedback-correct';}else{btns[idx].classList.add('selected-incorrect');q.options.forEach((o,i)=>{if(o.correct)btns[i].classList.add('selected-correct');});fb.className='feedback-box show feedback-incorrect';}fb.innerText=selected.feedback;document.getElementById('scoreTracker').innerText=`Score: ${score} / 5`;document.getElementById('nextQuestionBtn').disabled=false;}
+function nextQuestion(){if(currentQ<quizData.length-1){currentQ++;renderQuestion();}else{document.getElementById('quizQuestionTitle').innerText='Assessment Complete';document.getElementById('quizVignetteText').innerText=`Your final score is ${score} out of 5 (${Math.round(score/5*100)}%).`;document.getElementById('quizOptionsContainer').innerHTML='';document.getElementById('quizFeedbackBox').style.display='none';document.getElementById('nextQuestionBtn').style.display='none';}}
+window.onload=()=>{updateMaturitySlider(32);renderQuestion();updateProgress();};
+
+// Mind-map branch controls
+document.querySelectorAll('.map-toggle').forEach(b=>b.addEventListener('click',()=>{const d=b.nextElementSibling;d.hidden=!d.hidden;b.textContent=b.textContent.replace(/[＋−]$/,d.hidden?'＋':'−');}));
+
+// Flashcards: content is restricted to the uploaded lecture.
+const flashcards=[
+["Which scalp swelling crosses suture lines?","Caput succedaneum: superficial scalp edema above the epicranial aponeurosis."],
+["Which scalp swelling is subperiosteal?","Cephalohematoma; it is bounded by the periosteum and does not cross sutures."],
+["When is caput succedaneum present?","At birth."],
+["How quickly does caput usually resolve?","Within 2–3 days; scalp molding may persist for several weeks."],
+["When does cephalohematoma appear?","Typically 12–24 hours after delivery."],
+["Name two cephalohematoma associations.","Jaundice from RBC breakdown and an underlying linear skull fracture; it may also calcify."],
+["Which roots are affected in Erb palsy?","C5–C6, the upper trunk."],
+["What traction causes Erb palsy?","Excessive lateral traction on the neck, e.g. with shoulder dystocia."],
+["Describe waiter’s-tip posture.","Adducted, internally rotated arm; extended elbow; flexed wrist."],
+["Which reflex is impaired in Erb palsy?","Moro reflex on the affected side."],
+["Which roots are affected in Klumpke palsy?","C7–C8 ± T1, the lower trunk."],
+["What is the characteristic hand posture in Klumpke palsy?","Total claw hand due to intrinsic hand muscle paralysis."],
+["Which reflex is absent in Klumpke palsy?","Grasp reflex."],
+["What Horner features may accompany Klumpke palsy?","Ptosis, miosis and anhidrosis."],
+["When does the lecture suggest neuroplasty for plexus injury?","If there is no recovery within 3–6 months."],
+["What is the most common delivery bone injury in the lecture?","Clavicular fracture."],
+["What are clues to neonatal clavicular fracture?","Asymmetric Moro reflex, local tenderness and palpable callus within one week."],
+["What is the facial distribution in neonatal CN VII palsy?","Weakness of the entire ipsilateral face, including the forehead."],
+["What supportive care is important in facial nerve palsy?","Eye protection with lubrication."],
+["What triggers cutis marmorata in the lecture?","Cooling; it appears as lacy, reticulated vascular mottling."],
+["Describe a salmon patch.","Pale pink macule on nuchal area, glabella or eyelids; may darken during crying."],
+["What is the important differential for Mongolian spots?","Bruising/possible child abuse."],
+["What cells are found in erythema toxicum lesions?","Eosinophils; it peaks around day 2 and is benign/self-limited."],
+["Describe superficial hemangioma.","Bright red, protuberant, sharply demarcated lesion appearing in the first two months; expansion then involution."],
+["How does deep hemangioma differ?","Firm/cystic, bluish and less likely to regress."],
+["What evaluation is advised for preauricular tags or pits?","Hearing evaluation and renal ultrasound for genitourinary anomalies."],
+["What association is linked to iris coloboma?","CHARGE association; the described cleft is at 6 o’clock."],
+["What tumor is associated with aniridia?","Wilms tumor."],
+["What defines polydactyly?","More than five fingers or toes."],
+["What distinguishes asymmetrical from symmetrical IUGR?","Asymmetrical: relatively preserved head with small body/limbs, usually late placental insufficiency. Symmetrical: proportionately small body and head after an early global insult."]
+];
+let fcOrder=flashcards.map((_,i)=>i),fcIndex=0,fcBack=false,fcDifficult=new Set(),fcRated=new Set();
+function renderFC(){const c=flashcards[fcOrder[fcIndex]];document.getElementById('fcCount').textContent=(fcIndex+1)+' / '+fcOrder.length;document.getElementById('fcBar').style.width=((fcIndex+1)/fcOrder.length*100)+'%';document.getElementById('fcFlag').textContent=fcDifficult.has(fcOrder[fcIndex])?'Needs revision':fcRated.has(fcOrder[fcIndex])?'Reviewed':'New';document.getElementById('fcCard').textContent=(fcBack?'ANSWER: ':'QUESTION: ')+c[fcBack?1:0];}
+function flipFC(){fcBack=!fcBack;renderFC()}document.getElementById('fcCard').onclick=flipFC;document.getElementById('fcFlip').onclick=flipFC;
+document.getElementById('fcPrev').onclick=()=>{fcIndex=Math.max(0,fcIndex-1);fcBack=false;renderFC()};document.getElementById('fcNext').onclick=()=>{fcIndex=Math.min(fcOrder.length-1,fcIndex+1);fcBack=false;renderFC()};
+document.getElementById('fcEasy').onclick=()=>{fcRated.add(fcOrder[fcIndex]);fcDifficult.delete(fcOrder[fcIndex]);renderFC()};
+document.getElementById('fcHard').onclick=()=>{fcRated.add(fcOrder[fcIndex]);fcDifficult.add(fcOrder[fcIndex]);renderFC()};
+document.getElementById('fcReview').onclick=()=>{if(!fcDifficult.size){alert('No difficult cards marked yet.');return;}fcOrder=[...fcDifficult];fcIndex=0;fcBack=false;renderFC()};
+document.getElementById('fcShuffle').onclick=()=>{fcOrder.sort(()=>Math.random()-.5);fcIndex=0;fcBack=false;renderFC()};renderFC();
+
+// 30 MCQs, based on the source lecture. Feedback is shown for every option.
+const bank=[
+["A newborn has diffuse scalp edema present at birth that crosses cranial sutures. Diagnosis?",["Caput succedaneum","Cephalohematoma","Depressed skull fracture"],0],
+["A localized scalp swelling appears 18 hours after birth and is bounded by sutures. Diagnosis?",["Caput succedaneum","Cephalohematoma","Salmon patch"],1],
+["Which complication is associated with cephalohematoma?",["Hyperbilirubinemia","Horner syndrome","Wilms tumor"],0],
+["Shoulder dystocia is followed by waiter’s-tip posture. Which roots are injured?",["C7–C8 ± T1","C5–C6","CN VII"],1],
+["An asymmetric Moro reflex with preserved grasp and waiter’s-tip posture suggests:",["Klumpke palsy","Erb–Duchenne palsy","Facial nerve palsy"],1],
+["Claw hand, absent grasp and possible Horner syndrome indicate:",["C5–C6 injury","C7–C8 ± T1 injury","Isolated CN VII injury"],1],
+["Which delivery force is associated with Erb palsy?",["Lateral neck traction","Upward arm traction","Facial nerve compression"],0],
+["Local clavicular tenderness, asymmetric Moro and callus at one week suggest:",["Clavicular fracture","Cephalohematoma","Klumpke palsy"],0],
+["Unilateral weakness of the entire face including forehead after forceps compression involves:",["CN V","CN VII","CN XII"],1],
+["What supportive care is important in facial nerve palsy?",["Eye protection/lubrication","Renal ultrasound","Arm immobilization"],0],
+["Lacy reticulated mottling when the infant is cooled is:",["Cutis marmorata","Salmon patch","Erythema toxicum"],0],
+["A pink glabellar macule darkens during crying. Diagnosis?",["Mongolian spot","Salmon patch","Deep hemangioma"],1],
+["A slate-gray presacral patch requires differentiation from:",["Erythema toxicum","Bruising","Cephalohematoma"],1],
+["Day-two yellow-white papules on erythematous bases contain eosinophils. Management?",["Reassurance","Propranolol","Antibiotics"],0],
+["A bright red, raised, sharply demarcated lesion appearing in the first two months is:",["Superficial hemangioma","Mongolian spot","Cutis marmorata"],0],
+["The described course of superficial hemangioma is:",["Expansion, stationary phase, involution","Continuous growth only","Cooling-related appearance"],0],
+["A firm, cystic, bluish lesion less likely to regress is:",["Superficial hemangioma","Deep hemangioma","Salmon patch"],1],
+["Preauricular pits/tags prompt which evaluation in the lecture?",["Hearing evaluation and renal ultrasound","Only skin review","Only cardiac imaging"],0],
+["Iris coloboma at 6 o’clock is associated with:",["Wilms tumor","CHARGE association","IUGR"],1],
+["Aniridia is associated with:",["Wilms tumor","CHARGE association","Horner syndrome"],0],
+["Asymmetrical IUGR is most associated with:",["Early global insult","Late nutrient/O₂ delivery impairment","Postnatal infection"],1],
+["Preserved head circumference with small body and limbs in maternal hypertension suggests:",["Symmetrical IUGR","Asymmetrical IUGR","Post-term infant"],1],
+["Proportionate reduction in head and body size after early TORCH infection suggests:",["Asymmetrical IUGR","Symmetrical IUGR","Macrosomia"],1],
+["Which is a cause of symmetrical IUGR listed in the lecture?",["Early TORCH infection","Maternal hypertension only","Placental abruption"],0],
+["Which is a listed complication of IUGR?",["Perinatal asphyxia","Claw hand","Aniridia"],0],
+["Which finding favors prematurity?",["Firm ear cartilage","Thin shiny skin with visible veins and little fat","Long nails and peeling skin"],1],
+["Which finding favors full-term maturity?",["Weak suck and gag","Soft ear cartilage","Firm ear cartilage with instant recoil"],2],
+["A 43-week infant with peeling pale skin and long nails is:",["Preterm","Term","Post-term"],2],
+["Which pair is listed among prematurity complications?",["ROP and PDA","Wilms tumor and CHARGE","Horner syndrome and claw hand"],0],
+["The lecture states that an extra digit may need no treatment when:",["Perfusion is poor","Blood supply and structural alignment are intact","There is associated jaundice"],1]
+];
+let bankIndex=0,bankAnswers={};
+function renderBank(){const q=bank[bankIndex],chosen=bankAnswers[bankIndex];document.getElementById('bankTitle').textContent=`Question ${bankIndex+1} of ${bank.length}`;document.getElementById('bankStem').textContent=q[0];document.getElementById('bankBar').style.width=((bankIndex+1)/bank.length*100)+'%';let score=Object.keys(bankAnswers).filter(k=>bankAnswers[k]===bank[k][2]).length;document.getElementById('bankScore').textContent=`Score: ${score} / ${bank.length}`;let box=document.getElementById('bankOptions');box.innerHTML='';q[1].forEach((o,i)=>{let b=document.createElement('button');b.className='option-btn';b.textContent=String.fromCharCode(65+i)+'. '+o;b.disabled=chosen!==undefined;if(chosen!==undefined&&i===q[2])b.classList.add('selected-correct');if(chosen===i&&i!==q[2])b.classList.add('selected-incorrect');b.onclick=()=>{bankAnswers[bankIndex]=i;renderBank()};box.appendChild(b)});let fb=document.getElementById('bankFeedback');fb.className='feedback-box'+(chosen!==undefined?' show':'');if(chosen!==undefined){fb.innerHTML=q[1].map((o,i)=>`<p><b>${String.fromCharCode(65+i)} ${i===q[2]?'— Correct.':'— Not the best answer.'}</b> ${i===q[2]?'This option matches the key clinical feature described in the lecture.':'This is a plausible association or a different condition, but it does not match the specific clinical pattern in this stem.'}</p>`).join('')}else fb.innerHTML='';document.getElementById('bankPrev').disabled=bankIndex===0;document.getElementById('bankNext').disabled=chosen===undefined;document.getElementById('bankNext').textContent=bankIndex===bank.length-1?'Finish':'Next →';}
+document.getElementById('bankPrev').onclick=()=>{bankIndex=Math.max(0,bankIndex-1);renderBank()};document.getElementById('bankNext').onclick=()=>{if(bankIndex<bank.length-1){bankIndex++;renderBank()}else{document.getElementById('bankTitle').textContent='Assessment complete';document.getElementById('bankStem').textContent=`Final score: ${Object.keys(bankAnswers).filter(k=>bankAnswers[k]===bank[k][2]).length} / ${bank.length}`;document.getElementById('bankOptions').innerHTML='';document.getElementById('bankFeedback').className='feedback-box';document.getElementById('bankFeedback').textContent='Review the lecture and repeat the question bank to consolidate weak areas.';}};renderBank();
+
+// Clinical reasoning cases
+const cases=[
+{q:'A 12-hour-old newborn has a firm parietal swelling that does not cross sutures. What is the best interpretation?',o:['Caput succedaneum','Cephalohematoma','Salmon patch'],a:1,e:'Cephalohematoma is subperiosteal, does not cross sutures and often appears 12–24 hours after birth. Monitor for the lecture-described association with jaundice.'},
+{q:'After shoulder dystocia, a newborn has an adducted internally rotated arm, extended elbow, flexed wrist and asymmetric Moro reflex. Which lesion?',o:['Lower trunk injury','Erb–Duchenne C5–C6 injury','Facial nerve palsy'],a:1,e:'This is the upper trunk C5–C6 pattern: waiter’s tip with impaired Moro reflex.'},
+{q:'A fetus has preserved head circumference but small body and limbs; maternal history includes severe hypertension. Which growth pattern?',o:['Symmetrical IUGR','Asymmetrical IUGR','Post-term maturity'],a:1,e:'Late uteroplacental insufficiency produces head-sparing, asymmetrical IUGR.'}
+];let caseIndex=0,caseDone={};function renderCase(){let c=cases[caseIndex];document.getElementById('caseContent').innerHTML=`<h3>Case ${caseIndex+1} of ${cases.length}</h3><p>${c.q}</p>${c.o.map((x,i)=>`<button class="option-btn" ${caseDone[caseIndex]!==undefined?'disabled':''} data-i="${i}">${String.fromCharCode(65+i)}. ${x}</button>`).join('')}<div id="caseFeedback" class="callout-box" ${caseDone[caseIndex]===undefined?'hidden':''}>${caseDone[caseIndex]===undefined?'':(caseDone[caseIndex]===c.a?'Correct. ':'Not quite. ')+c.e}</div>`;document.querySelectorAll('#caseContent .option-btn').forEach(b=>b.onclick=()=>{caseDone[caseIndex]=+b.dataset.i;renderCase()});document.getElementById('caseNext').textContent=caseIndex===cases.length-1?'Restart cases':'Next case →'}document.getElementById('caseNext').onclick=()=>{caseIndex=caseIndex===cases.length-1?0:caseIndex+1;renderCase()};renderCase();
+
+</script>
+</body>
+</html>
